@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="icon" href="assets/favicon_io/" type="image/x-icon">
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="display">
+            <span id="calculator-input"></span>
+        </div>
+        <div class="buttons-container">
+            <div></div>
+            <div></div>
+            <button class="button clear" id="btn-clear">C</button>
+            <button class="button clear" id="btn-clear-all">CE</button>
+
+            <button class="button number" id="btn-seven">7</button>
+            <button class="button number" id="btn-eight">8</button>
+            <button class="button number" id="btn-nine">9</button>
+            <button class="button operator" id="btn-divider" data-value="/">
+                <i class="fa-solid fa-divide" style="color: rgb(0, 0, 0);"></i>
+            </button>
+            <button class="button number" id="btn-four">4</button>
+            <button class="button number" id="btn-five">5</button>
+            <button class="button number" id="btn-six">6</button>
+            <button class="button operator" id="btn-multiplier" data-value="*">
+                <i class="fa-solid fa-xmark" style="color: rgb(0, 0, 0);"></i>
+            </button>
+            <button class="button number" id="btn-one">1</button>
+            <button class="button number" id="btn-two">2</button>
+            <button class="button number" id="btn-three">3</button>
+            <button class="button operator" id="btn-minus" data-value="-">
+                <i class="fa-solid fa-minus" style="color: rgb(0, 0, 0);"></i>
+            </button>
+            <button class="button" id="btn-dot">.</button>
+            <button class="button number" id="btn-zero">0</button>
+            <button class="button operator" id="btn-plus" data-value="+">
+                <i class="fa-solid fa-plus" style="color: rgb(0, 0, 0);"></i>
+            </button>
+            <button class="button operator" id="btn-equal" data-value="=">
+                <i class="fa-solid fa-equals" style="color: rgb(0, 0, 0);"></i>
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

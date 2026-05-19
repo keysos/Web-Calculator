@@ -1,0 +1,141 @@
+/* CSS Boilerplate */
+:root {
+    --bg: #1E1E2F;
+    --calculator-body: #2D2D44;
+    --display-bg: #111827;
+    --display-text: #F9FAFB;
+
+    --display: #ccddcd;
+
+    --btn-number: #3B3B5C;
+    --btn-number-hover: #4B4B70;
+
+    --btn-operator: #FF9500;
+    --btn-operator-hover: #FFAA33;
+
+    --btn-equals: #34C759;
+    --btn-equals-hover: #4DDB73;
+
+    --btn-clear: #FF3B30;
+    --btn-clear-hover: #FF5C52;
+
+    --border: #4A4A6A;
+    --shadow: rgba(0, 0, 0, 0.35);
+}
+
+html {
+    font-size: 16px;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Digital", "Roboto Mono", monospace;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    overflow: hidden;
+    padding: 0px 10px;
+    background-color: var(--display);
+    min-height: 54px;
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+#calculator-input {
+    border-bottom: black;
+}
+
+.buttons-container {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    gap: 0.5rem;
+}
+
+.button {
+    padding: 10px;
+    color: var(--display-text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+    font-size: 1.5rem;
+    font-family: "Digital", "Roboto Mono", monospace;
+}
+
+.button:active {
+    transform: scale(0.96);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.button.number,
+#btn-dot {
+    background-color: var(--btn-number);
+    border-color: var(--border);
+    transition: background-color 0.02s ease;
+}
+
+.button.number:hover {
+    background-color: var(--btn-number-hover);
+}
+
+.button.clear {
+    background-color: var(--btn-clear);
+    transition: background-color 0.02s ease;
+}
+
+.button.clear:hover {
+    background-color: var(--btn-clear-hover);
+}
+
+.button.operator {
+    background-color: var(--btn-operator);
+    transition: background-color 0.02s ease;
+}
+
+.button.operator:hover {
+    background-color: var(--btn-operator-hover);
+}
+
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    border: 1px solid var(--border);
+    background-color: var(--calculator-body);
+    width: 300px;
+    min-height: 350px;
+}
+
+@font-face {
+    font-family: "Digital";
+    src: url("./fonts/digital-7/digital-7.ttf") format("truetype");
+}
