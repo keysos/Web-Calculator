@@ -9,8 +9,13 @@ const btnClearAll = document.getElementById("btn-clear-all");
 
 const operators = ["+", "-", "*", "/"]
 
+let hasError = false;
+
 buttons.forEach((element) => {
+
     element.addEventListener("click", () => {
+
+        if (hasError) return;
 
         buttonSound.currentTime = 0;
         buttonSound.play();
@@ -34,13 +39,29 @@ btnEqual.addEventListener("click", () => {
 })
 
 btnClear.addEventListener("click", () => {
+    if (hasError) return;
     displayInput.textContent = displayInput.textContent.slice(0, -1);
 })
 
 btnClearAll.addEventListener("click", () => {
     displayInput.textContent = "";
+    displayInput.style.fontSize = "2rem";
+    hasError = false;
 })
 
 function evaluateOperation(operation) {
+    
+    const operators = "*/=-";
+
+    const firstChar = operation[0];
+    const lastChar = operation[operation.length - 1];
+
+    if (operators.includes(firstChar) || operators.includes(lastChar) || /[a-zA-ZÀ-ÿ]/.test(operation)) {
+        hasError = true;
+
+        displayInput.style.fontSize = "24px";
+        return  `error: invalid expression`;
+    }
+
     return eval(operation);
 }
