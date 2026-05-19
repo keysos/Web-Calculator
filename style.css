@@ -131,11 +131,32 @@ body {
     padding: 20px;
     border: 1px solid var(--border);
     background-color: var(--calculator-body);
-    width: 300px;
+    width: min(90vw, 320px);
     min-height: 350px;
 }
 
 @font-face {
     font-family: "Digital";
     src: url("./fonts/digital-7/digital-7.ttf") format("truetype");
+}
+
+@media (max-width: 768px) {
+
+    .calculator {
+        width: min(95vw, 320px);
+        padding: 18px;
+    }
+
+    .display {
+        font-size: 1.6rem;
+        min-height: 50px;
+    }
+
+     .button {
+        padding: 12px;
+    }
+
+    .buttons-container {
+        gap: 0.4rem;
+    }
 }
