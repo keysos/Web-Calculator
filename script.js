@@ -17,6 +17,10 @@ buttons.forEach((element) => {
 
         if (hasError) return;
 
+        if (/[a-df-zA-DF-ZÀ-ÿ]/.test(displayInput.textContent)) {
+            return;
+        }
+
         buttonSound.currentTime = 0;
         buttonSound.play();
 
@@ -35,12 +39,20 @@ buttons.forEach((element) => {
 })
 
 btnEqual.addEventListener("click", () => {
+    if (hasError) return;
     displayInput.textContent = evaluateOperation(displayInput.textContent);
 })
 
 btnClear.addEventListener("click", () => {
     if (hasError) return;
-    displayInput.textContent = displayInput.textContent.slice(0, -1);
+
+    const index = lastOperatorIndex(displayInput.textContent);
+
+    if (index === -1) {
+        return;
+    }
+
+    displayInput.textContent = displayInput.textContent.slice(0, index + 1);
 })
 
 btnClearAll.addEventListener("click", () => {
@@ -49,14 +61,24 @@ btnClearAll.addEventListener("click", () => {
     hasError = false;
 })
 
+function lastOperatorIndex(str) {
+
+  const index = Math.max(
+    str.lastIndexOf("+"),
+    str.lastIndexOf("-"),
+    str.lastIndexOf("*"),
+    str.lastIndexOf("/")
+  );
+
+  return index;
+}
+
 function evaluateOperation(operation) {
     
-    const operators = "*/=-";
-
     const firstChar = operation[0];
     const lastChar = operation[operation.length - 1];
 
-    if (operators.includes(firstChar) || operators.includes(lastChar) || /[a-zA-ZÀ-ÿ]/.test(operation)) {
+    if (operators.includes(firstChar) || operators.includes(lastChar) || /[a-df-zA-DF-ZÀ-ÿ]/.test(operation)) {
         hasError = true;
 
         displayInput.style.fontSize = "24px";
