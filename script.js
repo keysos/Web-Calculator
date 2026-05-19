@@ -29,8 +29,6 @@ buttons.forEach((element) => {
     })
 })
 
-
-
 btnEqual.addEventListener("click", () => {
     displayInput.textContent = evaluateOperation(displayInput.textContent);
 })
@@ -44,8 +42,5 @@ btnClearAll.addEventListener("click", () => {
 })
 
 function evaluateOperation(operation) {
-
-    const result = eval(operation);
-
-    return result;
+    return eval(operation);
 }
