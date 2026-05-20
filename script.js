@@ -32,7 +32,7 @@ buttons.forEach((element) => {
             return;
         }
 
-        if (value === "=" || value === "C" || value === "CEE") return;
+        if (value === "=" || value === "C" || value === "CE") return;
 
         displayInput.textContent += value;
     })
