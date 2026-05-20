@@ -49,7 +49,7 @@ btnClear.addEventListener("click", () => {
     const index = lastOperatorIndex(displayInput.textContent);
 
     if (index === -1) {
-        return;
+        displayInput = displayInput.textContent = "";
     }
 
     displayInput.textContent = displayInput.textContent.slice(0, index + 1);
